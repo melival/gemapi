@@ -6,7 +6,7 @@ class Deals(models.Model):
     item = models.CharField(max_length=50, null=False)
     total = models.IntegerField()
     quantity = models.IntegerField(null=False)
-    date = models.CharField(max_length=50)
+    date = models.DateTimeField()
 
     def __str__(self):
         return f"{self.customer} buy {self.quantity} {self.item}"
