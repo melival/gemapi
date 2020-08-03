@@ -1,5 +1,6 @@
 from django.db.models import Sum
 from django.utils.dateparse import parse_datetime
+from django.utils.timezone import make_aware
 
 
 def csv_reader(data):
@@ -26,7 +27,7 @@ def save_data(rows, Model):
             'item': item,
             'total': int(total),
             'quantity': int(quantity),
-            'date': parse_datetime(date),
+            'date': make_aware(parse_datetime(date)),
         }
         save_row(Model, data)
 
